@@ -6,12 +6,12 @@ describe Post do
     expect(Post.count).to eq 0
     Post.create(body: "The bird is the word!", 
                 author: "testuser", 
-                created: Time.now)
+                created_at: Time.now)
     expect(Post.count).to eq 1
     post = Post.first
     expect(post.body).to eq "The bird is the word!"
     expect(post.author).to eq "testuser"
-    expect(post.created).not_to be nil
+    expect(post.created_at).not_to be nil
     post.destroy
     expect(Post.count).to eq 0 
   end

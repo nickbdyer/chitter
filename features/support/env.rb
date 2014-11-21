@@ -7,6 +7,7 @@ require File.join(File.dirname(__FILE__), '..', '..', 'app/server.rb')
 require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
+require_relative 'database_cleaner'
 
 Capybara.app = Chitter
 

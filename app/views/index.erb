@@ -1,1 +1,8 @@
-There are no posts here. Sign in to add a post.
+<% if Post.count < 1 %>
+  There are no posts here. Sign in to add a post.
+<% else %>
+  <% @posts.each do |post| %>
+    <%= post.body %>
+    <%= post.author %>
+  <% end %>
+<% end %>

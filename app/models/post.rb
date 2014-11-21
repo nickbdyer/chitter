@@ -5,6 +5,6 @@ class Post
   property :id, Serial
   property :body, Text
   property :author, String
-  property :created, Time
+  property :created_at, Time
 
 end
