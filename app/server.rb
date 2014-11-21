@@ -17,6 +17,14 @@ class Chitter < Sinatra::Base
     erb :index
   end
 
+  post '/' do
+    Post.create(body: params[:body],
+                author: "Current User", 
+                created_at: Time.now)
+    @posts = Post.all
+    erb :index
+  end
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end

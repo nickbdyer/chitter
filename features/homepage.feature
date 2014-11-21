@@ -1,7 +1,7 @@
 Feature: Chitter
-  In order to let people know what I'm up to
+  In order to satsify my need for gossip
   As a socialable person
-  I want to be able to tell people what I'm doing
+  I want to be able to see what people are up to
 
   Scenario: Visit the homepage with no posts
     Given I am on the homepage
