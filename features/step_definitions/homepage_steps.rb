@@ -3,9 +3,9 @@ Given(/^I am on the homepage$/) do
 end
 
 Given(/^there are no posts$/) do
-  # Expect test database to have no posts
+  expect(Post.count).to eq 0
 end
 
 Then(/^I should be told there is nothing to see$/) do
-  # Display text on homepage indicating that there are no posts, ask to log in and post. 
+  expect(page).to have_content "There are no posts here. Sign in to add a post."
 end
