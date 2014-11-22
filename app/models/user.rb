@@ -5,14 +5,14 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String, :unique => true, :message => "Sorry, your username is already taken."
+  property :username, String, :unique => true, :message => "Sorry, the username you entered is already taken."
   property :name, Text
-  property :email, Text, :unique => true, :message => "Sorry, this email is already registered."
+  property :email, Text, :unique => true, :message => "Sorry, the email you entered is already registered."
   property :password_digest, Text
 
   attr_reader :password
   attr_accessor :password_confirmation
-  validates_confirmation_of :password
+  validates_confirmation_of :password, :message => "Sorry, your passwords don't match"
 
   def password=(password)
     @password = password

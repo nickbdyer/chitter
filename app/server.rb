@@ -38,14 +38,14 @@ class Chitter < Sinatra::Base
 
   post '/users/signin' do
     @user = User.create(username: params[:username], 
-                name: params[:name], 
-                email: params[:email], 
-                password: params[:password],
-                password_confirmation: params[:password_confirmation])
+                        name: params[:name], 
+                        email: params[:email], 
+                        password: params[:password],
+                        password_confirmation: params[:password_confirmation])
     if @user.save
       erb :"users/signin"
     else
-      flash[:notice] = "Sorry, please make sure your passwords match."
+      flash.now[:errors] = @user.errors.full_messages
       erb :"users/new"
     end
   end

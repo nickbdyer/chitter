@@ -1,11 +1,7 @@
+require_relative "../support/users_helper"
+
 Given(/^I sign up$/) do
-  click_link "Sign Up"
-  fill_in "username", :with => "tester"
-  fill_in "name", :with => "Test Man"
-  fill_in "email", :with => "test@example.com"
-  fill_in "password", :with => "orange"
-  fill_in "password_confirmation", :with => "orange"
-  click_button "Submit"
+  sign_up
 end
 
 Then(/^I should be asked to sign in$/) do
@@ -13,22 +9,49 @@ Then(/^I should be asked to sign in$/) do
 end
 
 Given(/^I sign up with non matching passwords$/) do
-  click_link "Sign Up"
-  fill_in "username", :with => "tester"
-  fill_in "name", :with => "Test Man"
-  fill_in "email", :with => "test@example.com"
-  fill_in "password", :with => "orange"
-  fill_in "password_confirmation", :with => "apple"
-  click_button "Submit"
+  sign_up("tester", "Test Man", "test@example.com", "orange", "apple")
 end
 
 Then(/^I should be told my passwords don't match$/) do
-  expect(page).to have_content "Sorry, please make sure your passwords match."
+  expect(page).to have_content "Sorry, your passwords don't match"
   expect(page).not_to have_content "Enter your details to sign in."
 end
 
-Then(/^I should be asked to correct only the bad information$/) do
+Then(/^I should be shown the form with name, username and email filled out$/) do
   expect(page).to have_field('username', with: "tester")
   expect(page).to have_field('name', with: "Test Man")
   expect(page).to have_field('email', with: "test@example.com")
+end
+
+Given(/^I sign up with duplicate email$/) do
+  sign_up("tester", "Test Man", "test@example.com", "orange", "orange")
+  sign_up("tester2", "Test Man", "test@example.com", "orange", "orange")
+end
+
+Then(/^I should be told my email is already taken$/) do
+  expect(page).to have_content "Sorry, the email you entered is already registered."
+  expect(page).not_to have_content "Enter your details to sign in."
+end
+
+Then(/^I should be shown the form with name and username filled out$/) do
+  save_and_open_page
+  expect(page).to have_field('username', with: "tester2")
+  expect(page).to have_field('name', with: "Test Man")
+  expect(page).to have_field('email', with: nil)
+end
+
+Given(/^I sign up with duplicate username$/) do
+  sign_up("tester", "Test Man", "test@example.com", "orange", "orange")
+  sign_up("tester", "Test Man", "supertest@example.com", "orange", "orange")
+end
+
+Then(/^I should be told my username is already taken$/) do
+  expect(page).to have_content "Sorry, the username you entered is already taken."
+  expect(page).not_to have_content "Enter your details to sign in."
+end
+
+Then(/^I should be shown the form with name and email filled out$/) do
+  expect(page).to have_field('username', with: nil)
+  expect(page).to have_field('name', with: "Test Man")
+  expect(page).to have_field('email', with: "supertest@example.com")
 end

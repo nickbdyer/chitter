@@ -1,7 +1,14 @@
 <form method="post" action="/users/signin">
-  <input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
+  <input type="text" name="username"
+                     placeholder="<%= @user.username || "Username" %>" 
+                     value="<%= @user.username unless @user.errors.has_key? :username%>">
+
   <input type="text" name="name" placeholder="Name" value="<%= @user.name %>">
-  <input type="text" name="email" placeholder="Email" value="<%= @user.email %>">
+
+  <input type="text" name="email" 
+                     placeholder="<%= @user.email || "Email" %>" 
+                     value="<%= @user.email unless @user.errors.has_key? :email %>">
+
   <input type="password" name="password" placeholder="Password">
   <input type="password" name="password_confirmation" placeholder="Password Confirm">
   <input type="submit" value="Submit">
