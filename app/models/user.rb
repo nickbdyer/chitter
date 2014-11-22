@@ -5,9 +5,9 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :username, String
+  property :username, String, :unique => true, :message => "Sorry, your username is already taken."
   property :name, Text
-  property :email, Text
+  property :email, Text, :unique => true, :message => "Sorry, this email is already registered."
   property :password_digest, Text
 
   attr_reader :password
