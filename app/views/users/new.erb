@@ -1,4 +1,4 @@
-<form method="post" action="/users/signin">
+<form method="post" action="/sessions/new">
   <input type="text" name="username"
                      placeholder="<%= @user.username || "Username" %>" 
                      value="<%= @user.username unless @user.errors.has_key? :username%>">

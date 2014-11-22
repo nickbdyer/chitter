@@ -11,8 +11,12 @@
     <h1> Chitter </h1>
 
       <a href="/users/new">Sign Up</a>
+      <a href="/sessions/new">Sign In</a>
     
     </nav>
+    <% if current_user %>
+      Welcome, <%= current_user.username %>
+    <% end %>
 
   </header>
 

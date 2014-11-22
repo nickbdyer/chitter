@@ -34,7 +34,6 @@ Then(/^I should be told my email is already taken$/) do
 end
 
 Then(/^I should be shown the form with name and username filled out$/) do
-  save_and_open_page
   expect(page).to have_field('username', with: "tester2")
   expect(page).to have_field('name', with: "Test Man")
   expect(page).to have_field('email', with: nil)
