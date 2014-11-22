@@ -1,7 +1,7 @@
 <form method="post" action="/users/signin">
-  <input type="text" name="username" placeholder="Username">
-  <input type="text" name="name" placeholder="Name">
-  <input type="text" name="email" placeholder="Email">
+  <input type="text" name="username" placeholder="Username" value="<%= @user.username %>">
+  <input type="text" name="name" placeholder="Name" value="<%= @user.name %>">
+  <input type="text" name="email" placeholder="Email" value="<%= @user.email %>">
   <input type="password" name="password" placeholder="Password">
   <input type="password" name="password_confirmation" placeholder="Password Confirm">
   <input type="submit" value="Submit">
