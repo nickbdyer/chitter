@@ -13,3 +13,8 @@ Feature: Sessions
     And I am not signed in
     And I try to sign in
     Then I should be told my information was incorrect
+
+  Scenario: User sign out
+    Given I am signed in
+    When I sign out
+    Then I should be notified that I am signed out
