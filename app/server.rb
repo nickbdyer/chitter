@@ -1,22 +1,14 @@
 require 'sinatra/base'
 require 'data_mapper'
+require 'rack-flash'
 
-env = ENV['RACK_ENV'] || "development"
+require_relative './models/post'
+require_relative './models/user'
+require_relative 'data_mapper_setup'
 
-DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
-require './app/models/post'
-
-DataMapper.finalize
-
-DataMapper.auto_upgrade!
+require_relative './controllers/application'
+require_relative './controllers/homepage'
+require_relative './controllers/sessions'
+require_relative './controllers/users'
 
 
-class Chitter < Sinatra::Base
-  get '/' do
-    @posts = Post.all
-    erb :index
-  end
-
-  # start the server if ruby file executed directly
-  run! if app_file == $0
-end

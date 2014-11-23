@@ -1,1 +1,17 @@
-There are no posts here. Sign in to add a post.
+<% if current_user %>
+  <form method="post" action="/">
+    <input type="text" name="body" placeholder="Enter post text here">
+    <input type="submit" value="Post">
+  </form>
+<% end %>
+
+
+<% if Post.count < 1 %>
+  There are no posts here. Sign in to add a post.
+<% else %>
+  <ul>
+    <% @posts.reverse.each do |post| %>
+      <li><%= post.body %>: <%= post.author %></li>
+    <% end %>
+  </ul> 
+<% end %>
