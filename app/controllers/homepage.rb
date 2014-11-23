@@ -7,8 +7,9 @@ class Chitter
 
   post '/' do
     Post.create(body: params[:body],
-                author: "Current User", 
-                created_at: Time.now)
+                author: current_user.username, 
+                created_at: Time.now,
+                user_id: session[:user_id])
     @posts = Post.all
     erb :index
   end

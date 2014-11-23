@@ -11,9 +11,12 @@ Then(/^I should be told there is nothing to see$/) do
 end
 
 Given(/^there are posts$/) do
+  sign_up
+  sign_in
   Post.create(body: "Hello World", 
               author: "frankie", 
-              created_at: Time.now)
+              created_at: Time.now, 
+              user_id: 1)
   expect(Post.count).to eq 1
 end
 
