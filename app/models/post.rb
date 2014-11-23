@@ -7,6 +7,6 @@ class Post
   property :author, String
   property :created_at, Time
 
-  # belongs_to :user
+  belongs_to :user
 
 end

@@ -6,7 +6,8 @@ describe Post do
     expect(Post.count).to eq 0
     Post.create(body: "The bird is the word!", 
                 author: "testuser", 
-                created_at: Time.now)
+                created_at: Time.now, 
+                user_id: 1)
     expect(Post.count).to eq 1
     post = Post.first
     expect(post.body).to eq "The bird is the word!"
