@@ -4,6 +4,7 @@ describe Post do
 
   it "should be created and then retrieved from the database" do
     expect(Post.count).to eq 0
+    create_user
     Post.create(body: "The bird is the word!", 
                 author: "testuser", 
                 created_at: Time.now, 

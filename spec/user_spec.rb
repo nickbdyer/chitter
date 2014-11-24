@@ -2,14 +2,6 @@ require 'spec_helper'
 
 describe User do
 
-  def create_user
-     User.create(username: "testuser", 
-                name: "Testy McTesterson", 
-                email: "test@example.com",
-                password: "secret",
-                password_confirmation: "secret")
-  end
-
 
   it "should be created and then retrieved from the database" do
     expect(User.count).to eq 0

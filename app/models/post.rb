@@ -6,7 +6,6 @@ class Post
   property :body, Text
   property :author, String
   property :created_at, Time
-  property :user_id, Integer
 
   belongs_to :user
 
