@@ -3,6 +3,6 @@
     <%= post.body %>
   </div>
   <span class='source'>
-    posted on <%= post.created_at %> by <%= post.user_id %>
+    posted on <%= post.created_at.strftime("%e %b %Y %H:%M:%S%p") %> by <%= User.get(post.user_id).username %>
   </span>
 </li>
