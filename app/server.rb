@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require 'data_mapper'
 require 'rack-flash'
+require 'sinatra/partial'
 
 require_relative './models/post'
 require_relative './models/user'

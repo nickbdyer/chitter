@@ -4,6 +4,8 @@ class Chitter < Sinatra::Base
   set :session_secret, 'super secret'
   use Rack::Flash
   use Rack::MethodOverride
+  register Sinatra::Partial
+  set :partial_template_engine, :erb
 
   set :views, Proc.new { File.join(root, "..", "views") }
   set :public_folder, Proc.new { File.join(root, "..", "..", "public") }

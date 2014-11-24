@@ -1,8 +1,117 @@
-h1 { 
+body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: white;
+  padding: 0 20px 0 20px;
+
+}
+
+header {
+  background-color:DarkCyan;
+  border: 1px solid DarkCyan;
+}
+
+nav {
+  height: 34px;
+}
+
+h1 { 
   font-size:24px;
   text-transform: uppercase;
   letter-spacing: -1px;
   font-weight: bold;
-  margin-left: 10px;
+  color:white;
+  text-shadow: 1px 1px 3px black;
+  margin: 5px;
+  float:left;
 }
+
+section {
+  margin: 20px auto 20px auto;
+  text-align:center;
+  clear: both;
+  padding: 10px;
+}
+
+nav li {
+  margin: 5px;
+  color:white;
+  float:right;
+  vertical-align: middle;
+}
+
+li.welcome {
+  margin-top: 8px;
+}
+
+input {
+  font-size:75%;
+  color:#5a5854;
+  background-color: #f2f2f2;
+  border: 1px solid #bdbdbd;
+  border-radius: 5px;
+  padding: 2px 5px 2px 5px;
+  margin-bottom: 5px;
+}
+
+input:focus, input:hover {
+  background-color: #ffffff;
+  border: 1px solid #b1e1e4;
+}
+
+input#submit {
+  color: #333333;
+  text-shadow: 0px 1px 1px #ffffff;
+  border-bottom: 2px solid #b2b2b2;
+  background-color: #b0e4e3;
+}
+
+input#submit:hover {
+  color:#333333;
+  border: 1px solid #a4a4a4;
+  border-top: 2px solid #b2b2b2;
+  background-color: #a0dbc4;
+}
+
+#posts-container {
+  background-color: white;
+  margin: 40px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  padding: 10px;
+}
+
+.post {
+  background-color: lightcyan;
+  box-shadow: 0 0 5px rgba(0,0,0,0.4);
+  margin: 10px inherit;
+  padding: 15px 10px;
+}
+
+  .post .description {
+    margin: 10px inherit;
+  }
+
+  .post .source {
+    float: right;
+    font-size: 12px;
+  }
+  
+  #notice {
+  text-align: center;
+  margin: 5px;
+  padding: 5px;
+  background-color: rgba(67,183,120,0.75);
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0,0,0,0.4);
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
