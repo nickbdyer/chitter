@@ -3,6 +3,7 @@ require 'data_mapper'
 require 'rack-flash'
 require 'sinatra/partial'
 
+require_relative './helpers/application'
 require_relative './models/post'
 require_relative './models/user'
 require_relative 'data_mapper_setup'

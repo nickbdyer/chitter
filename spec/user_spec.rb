@@ -1,9 +1,14 @@
 require 'spec_helper'
+class Plane
+end
 
 describe User do
 
+   let(:plane) { Plane.new }
 
   it "should be created and then retrieved from the database" do
+    puts '====' * 20
+    puts plane.inspect
     expect(User.count).to eq 0
     create_user
     expect(User.count).to eq 1
@@ -17,6 +22,8 @@ describe User do
   end
 
   it "should not be created if password does not match password confirmation" do
+    puts '====' * 20
+    puts plane.inspect
     expect(User.count).to eq 0
     User.create(username: "testuser", 
                 name: "Testy McTesterson", 
@@ -27,6 +34,8 @@ describe User do
   end
 
   it "should not be created if the username is not unique" do
+    puts '====' * 20
+    puts plane.inspect
     create_user
     expect(User.count).to eq 1
     User.create(username: "testuser", 
