@@ -1,5 +1,7 @@
 #Chitter 
 
+[![Code Climate](https://codeclimate.com/github/nickbdyer/chitter/badges/gpa.svg)](https://codeclimate.com/github/nickbdyer/chitter)
+
 Week 4 Challenge at Makers Academy
 
 ###Challenge
